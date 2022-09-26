@@ -1,0 +1,42 @@
+<%- include('partials/header') -%>
+  <div class="container">
+      <div class="row mt-5">
+          <div class="col-6">
+              <div class="mt-5">
+                <h2>Search for a topic</h2>
+                <p>Enter a question or topic you would like to learn more about</p>
+                <form action="/qa/q" method="POST" class="search-form" id="searchForm">
+                  <div class="mb-3">
+                      <label for="title" placeholder="Enter here" class="form-label"></label>
+                      <input type="text" class="form-control" id="title" name="searchInput" placeholder="Enter here" <% if (search != '') { %> value="<%= search %>" <% } %>>
+                  </div>
+                  <div>
+                      <button class="btn btn-primary">Search</button>
+                      </form>
+                  </div>
+              </div>
+              <div class="mt-5"><h4>Results</h4></div>
+
+              <% if(data != null) { data.forEach( item => { %>
+                <div class="accordion mt-5" id="accordionExample">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                          <%=item.question%>
+                        </button>
+                      </h2>
+                      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                          <%=item.answer%>
+                            <br>
+                           <a class="btn btn-primary mt-4" href="#">Download File</a>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              <% }); } %>
+              
+          </div>
+      </div>
+  </div>
+<%- include('partials/footer') -%>
