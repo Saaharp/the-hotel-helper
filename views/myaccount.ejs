@@ -36,7 +36,7 @@
                   action="/qa/deleteQA/<%=qas[i].id%>?_method=DELETE"
                   method="POST"
                   class="col-3">
-                  <button class="btn btn-primary mt-3" type="submit"> Delete</button>
+                  <button onclick="return confirm('Select \'OK\' to confirm deletion.')" class="btn btn-primary mt-3" type="submit"> Delete</button>
                 </form>
 
             </div>
