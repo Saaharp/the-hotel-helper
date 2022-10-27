@@ -4,13 +4,15 @@ const Qa = require("../models/Qanda");
 module.exports = {
   createQA: async (req, res) => {
     try {
+      // const result = await cloudinary.uploader.upload(req.file.path);
+
       await Qa.create({
         question: req.body.question,
         answer: req.body.answer,
-        user: req.user.id
+        user: req.user.id,
       });
       console.log("Q&A has been added!");
-      res.redirect("/newqa");
+      res.redirect("/myaccount");
     } catch (err) {
       console.log(err);
     }
@@ -50,6 +52,9 @@ module.exports = {
     try {
       // Find post by id
       let qas = await Qa.findById({ _id: req.params.id });
+
+      // await cloudinary.uploader.destroy(post.cloudinaryId);
+
       // Delete post from db
       await Qa.remove({ _id: req.params.id });
       console.log("Deleted Q & A");
@@ -58,28 +63,40 @@ module.exports = {
       res.redirect("/myaccount");
     }
   },
-
   getSearch: async(req, res) => {
-    let menu = Qa;
-    let q = req.body.searchInput;
-    let menuData = null;
-    let sesh = req.session;
-    let qry = {question:{$regex:'^' + q, $options:'i'}};
-  
-    if (q != null) {
-      let menuResult = await menu.find(qry).then( (data) => {
-        menuData = data;
-      });
-    } else {
-      q = 'Search';
-      let menuResult = await menu.find({}).then( (data) => {
-        menuData = data;
-      });
+    try{
+        const q = req.body.searchInput;
+        let sesh = req.session
+        const menuData = await Qa.find({question:{$regex: q, $options: 'i'}})
+        
+        q.length === 0 ? res.render('find', {message: 'Please enter a topic or question!', search:null,data:null}) : res.render('find',{data:menuData, search:q, loggedIn:sesh.loggedIn})
+
+    }catch(err){
+        console.log(err)
     }
-  
-    res.render('find', {title:'Menu App', data:menuData, search:q, loggedIn:sesh.loggedIn});
-    
+
+  },
+  editQA: async(req, res) => {
+    try{
+      let qas = await Qa.findById({ _id: req.params.id });
+      res.render("edit.ejs", {qas: qas})
+    }catch(err){
+      res.redirect("/myaccount")
+    }
+  },
+  saveQA: async (req, res) => {
+    try{
+      await Qa.findOneAndUpdate(
+        {_id: req.params.id},
+        {
+          question: req.body.newQuestion,
+          answer: req.body.newAnswer
+        }
+      )
+      console.log("QA saved")
+      res.redirect('/myaccount')
+    }catch(err){
+      console.log(err)
+    }
   }
-
-
 }

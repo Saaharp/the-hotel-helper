@@ -4,28 +4,39 @@
       <div class="col-6">
          
           <div class="mt-5">
-            <h1>My Account</h1>
+            <h1>Edit Entry</h1>
             <p>Create a new entry.</p>
-            <form action="/qa/createqa" method="POST">
+            <form action="/qa/save/<%=qas._id%>" method="POST">
               <div class="mb-3">
-                  <label for="title" class="form-label">Title</label>
-                  <input type="text" class="form-control" id="title" name="question">
+                  <label type="text" class="form-label">Title</label>
+                  <input type="text" class="form-control" id="title" name="newQuestion" value="<%=qas.question%>">
               </div>
               <div class="mb-3">
                 <label for="caption" class="form-label">Caption</label>
-                <textarea class="form-control" id="caption" name="answer"></textarea>
+                <input class="form-control" id="caption" name="newAnswer" value="<%=qas.answer%>">
               </div>
-              <!-- <div class="mb-3">
-                <label for="imgUpload" class="form-label">Supporting Image</label>
-                <input type="file" class="form-control" id="imageUpload" name="file">
-              </div> -->
-              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+              <button type="submit" class="btn btn-primary" value="Upload">Save</button>
             </form>
           </div>
       </div>
       <div class="col-6">
         <ul class="row list-unstyled">
-       
+           <li>
+              <form
+                action="/myaccount"
+                method="GET"
+                class="dropdown-item col-3">
+                <button class="btn btn-primary" type="submit">Cancel</button>
+              </form>
+            </li>
+            <li>
+              <form
+                action="/qa/deleteQA/<%=qas._id%>?_method=DELETE"
+                method="POST"
+                class="dropdown-item col-3">
+                <button onclick="return confirm('Select \'OK\' to confirm deletion.')" class="btn btn-primary" type="submit"> Delete</button>
+              </form>
+            </li>
         </ul>
         <div class="row justify-content-center mt-5">
         </div>  
@@ -33,7 +44,7 @@
     </div>
   </div>
 </div>
-<div class="myEntries container">
+<!-- <div class="myEntries container">
   <div class="row mt-5">
       <div class="col-6">
           <div class="mt-5 mb-3">
@@ -47,19 +58,21 @@
               <ul class="dropdown-menu">
                 <li><p class="dropdown-item"><%=qas[i].answer%></p></li>
                 <li>
-                  <a href="qa/editQA/<%=qas[i]._id%>">Edit</a>
-                  <!-- <form action="qa/editQA/<%=qas[i]._id%>">
-                    <button class="btn btn-primary" type="submit">Edit</button>
-                  </form> -->
+                  <form
+                    action=""
+                    method="POST"
+                    class="dropdown-item col-3">
+                    <button class="btn btn-primary" type="submit">Edit  </button>
+                  </form>
                 </li>
-                <!-- <li>
+                <li>
                   <form
                     action="/qa/deleteQA/<%=qas[i].id%>?_method=DELETE"
                     method="POST"
                     class="dropdown-item col-3">
                     <button onclick="return confirm('Select \'OK\' to confirm deletion.')" class="btn btn-primary" type="submit"> Delete</button>
                   </form>
-                </li> -->
+                </li>
               </ul>
            
           </div>
@@ -68,7 +81,7 @@
           <% } %>
       </div>
   </div>
-</div>
+</div> -->
   
 <%- include('partials/footer') -%>
 
