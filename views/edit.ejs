@@ -5,9 +5,8 @@
          
           <div class="mt-5">
             <h1>Edit Entry</h1>
-            <p>Create a new entry.</p>
             <form action="/qa/save/<%=qas._id%>" method="POST">
-              <div class="mb-3">
+              <div class="mb-3 mt-5">
                   <label type="text" class="form-label">Title</label>
                   <input type="text" class="form-control" id="title" name="newQuestion" value="<%=qas.question%>">
               </div>
@@ -15,26 +14,26 @@
                 <label for="caption" class="form-label">Caption</label>
                 <input class="form-control" id="caption" name="newAnswer" value="<%=qas.answer%>">
               </div>
-              <button type="submit" class="btn btn-primary" value="Upload">Save</button>
+              <button type="submit" class="d-grid col-6 btn btn-primary" value="Upload">Save</button>
             </form>
           </div>
       </div>
-      <div class="col-6">
+      <div class="col-12 mt-5">
         <ul class="row list-unstyled">
-           <li>
+           <li class="col-12">
               <form
                 action="/myaccount"
                 method="GET"
-                class="dropdown-item col-3">
+                class="">
                 <button class="btn btn-primary" type="submit">Cancel</button>
               </form>
             </li>
-            <li>
+            <li class="col mt-3">
               <form
                 action="/qa/deleteQA/<%=qas._id%>?_method=DELETE"
                 method="POST"
                 class="dropdown-item col-3">
-                <button onclick="return confirm('Select \'OK\' to confirm deletion.')" class="btn btn-primary" type="submit"> Delete</button>
+                <button onclick="return confirm('Select \'OK\' to confirm deletion.')" class="btn btn-danger" type="submit"> Delete</button>
               </form>
             </li>
         </ul>

@@ -1,11 +1,10 @@
 <%- include('partials/header') -%>
 <div class="container">
   <div class="row mt-5">
+    <h1 class="text-center mt-3">My Account</h1>
       <div class="col-6">
-         
           <div class="mt-5">
-            <h1>My Account</h1>
-            <p>Create a new entry.</p>
+            <h2>Create New Entry</h2>
             <form action="/qa/createqa" method="POST">
               <div class="mb-3">
                   <label for="title" class="form-label">Title</label>
@@ -23,50 +22,41 @@
             </form>
           </div>
       </div>
-      <div class="col-6">
+      <!-- <div class="col-6">
         <ul class="row list-unstyled">
        
         </ul>
         <div class="row justify-content-center mt-5">
-        </div>  
+        </div>   -->
       </div>  
     </div>
   </div>
 </div>
-<div class="myEntries container">
-  <div class="row mt-5">
-      <div class="col-6">
-          <div class="mt-5 mb-3">
-              <h2>My Entries:</h2>
-          </div>
-          <% for(var i=0; i<qas.length; i++) {%>
-           <div class="dropdend mt-3">
-              <div class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+<!-- My Entries -->
+<div class="myEntries mt-5 pb-5 pt-3 bg-primary">
+  <div class="mt-5 container">
+    <div class="">
+        <div class="mt-5">
+          <h2 class="text-light text-center">My Entries:</h2>
+        </div>
+        <% for(var i=0; i<qas.length; i++) {%>
+          <div class="card mt-3">
+            <div class="card-header">Entry #<%=[i+1]%></div>
+            <div class="card-body">
+              <h5 class="card-title">
                 <%=qas[i].question%>
+              </h5>
+              
+              <div class="">
+                <div><p class="card-text"><%=qas[i].answer%></p></div>
+                <div>
+                  <a href="qa/editQA/<%=qas[i]._id%>" class="btn btn-info mt-3">Edit</a>
+                </div>
               </div>
-              <ul class="dropdown-menu">
-                <li><p class="dropdown-item"><%=qas[i].answer%></p></li>
-                <li>
-                  <a href="qa/editQA/<%=qas[i]._id%>">Edit</a>
-                  <!-- <form action="qa/editQA/<%=qas[i]._id%>">
-                    <button class="btn btn-primary" type="submit">Edit</button>
-                  </form> -->
-                </li>
-                <!-- <li>
-                  <form
-                    action="/qa/deleteQA/<%=qas[i].id%>?_method=DELETE"
-                    method="POST"
-                    class="dropdown-item col-3">
-                    <button onclick="return confirm('Select \'OK\' to confirm deletion.')" class="btn btn-primary" type="submit"> Delete</button>
-                  </form>
-                </li> -->
-              </ul>
-           
+            </div>
           </div>
-
-
-          <% } %>
-      </div>
+        <% } %>
+    </div>
   </div>
 </div>
   
