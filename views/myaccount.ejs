@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row mt-5">
     <h1 class="text-center mt-3">My Account</h1>
-      <div class="col-6">
+      <div class="col-6 mx-auto">
           <div class="mt-5">
             <h2>Create New Entry</h2>
             <form action="/qa/createqa" method="POST">
@@ -14,21 +14,15 @@
                 <label for="caption" class="form-label">Caption</label>
                 <textarea class="form-control" id="caption" name="answer"></textarea>
               </div>
-              <!-- <div class="mb-3">
-                <label for="imgUpload" class="form-label">Supporting Image</label>
-                <input type="file" class="form-control" id="imageUpload" name="file">
-              </div> -->
               <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
             </form>
           </div>
       </div>
       <!-- <div class="col-6">
-        <ul class="row list-unstyled">
-       
-        </ul>
         <div class="row justify-content-center mt-5">
-        </div>   -->
-      </div>  
+        <img class="img-fluid w-50" src="imgs/hotel2.png">
+        </div>  
+      </div>   -->
     </div>
   </div>
 </div>
@@ -40,17 +34,16 @@
           <h2 class="text-light text-center">My Entries:</h2>
         </div>
         <% for(var i=0; i<qas.length; i++) {%>
-          <div class="card mt-3">
+          <div class="card mt-3 col-6 mx-auto">
             <div class="card-header">Entry #<%=[i+1]%></div>
             <div class="card-body">
               <h5 class="card-title">
                 <%=qas[i].question%>
               </h5>
-              
               <div class="">
                 <div><p class="card-text"><%=qas[i].answer%></p></div>
                 <div>
-                  <a href="qa/editQA/<%=qas[i]._id%>" class="btn btn-info mt-3">Edit</a>
+                  <a href="qa/editQA/<%=qas[i]._id%>" class="btn btn-primary mt-3">Edit</a>
                 </div>
               </div>
             </div>

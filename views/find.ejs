@@ -1,42 +1,45 @@
 <%- include('partials/header') -%>
-  <div class="container">
-      <div class="row mt-5">
-          <div class="col-6">
-              <div class="mt-5">
-                <h2>Search for a topic</h2>
-                <p>Enter a question or topic you would like to learn more about</p>
-                <form action="/qa/q" method="POST" class="search-form" id="searchForm">
-                  <div class="mb-3">
-                      <label for="title" placeholder="Enter here" class="form-label"></label>
-                      <input type="text" class="form-control" id="title" name="searchInput" placeholder="Enter here" <% if (search != '') { %> value="<%= search %>" <% } %>>
-                  </div>
-                  <div>
-                    <button class="btn btn-primary">Search</button>
-
-                    </form>
-                  </div>
-              </div>
-              
-              <div class="mt-5"><h4>Results</h4></div>
-              <% if(data != null) { data.forEach( item => { %>
-                <div class="card mt-5">
-                  <div class="card-header lead">
-                    <%=item.question%>
-                  </div>
-                  <div class="card-body">
-                    <!-- <h5 class="card-title">Special title treatment</h5> -->
-                    <p class="card-text"><%=item.answer%></p>
-                    <!-- <a href="#" class="btn btn-primary">View File</a> -->
-                  </div>
-                </div>
-              <% }); } %>
-              <% if(data == null) { %>
-                <div class="mt-3 lead">
-                  <p>Please Enter a Topic or Question</p>
-                </div>
-              <%  } %>
-              
-          </div>
-      </div>
+  <div class="container text-center">
+    <div class="row mt-5">
+       <div class="col-12 px-5">
+         <div class="mt-5">
+           <h2>Search for a topic</h2>
+           <p>Enter a question or topic you would like to learn more about</p>
+           <form action="/qa/q" method="POST" class="search-form px-5" id="searchForm">
+             <div class="mb-3">
+                 <!-- <label for="title" placeholder="Enter here" class="form-label"></label> -->
+                 <input type="text" class="form-control" id="title" name="searchInput" placeholder="Enter here" <% if (search != '') { %> value="<%= search %>" <% } %>>
+             </div>
+             <div>
+               <button class="btn btn-primary">Search</button>
+             </div>
+           </form>
+         </div>
+           
+         <div class="mt-5"><h4>Results</h4></div>
+         <% if(data != null) { data.forEach( item => { %>
+           <div class="card mt-5">
+             <div class="card-header lead">
+               <%=item.question%>
+             </div>
+             <div class="card-body">
+               <!-- <h5 class="card-title">Special title treatment</h5> -->
+               <p class="card-text"><%=item.answer%></p>
+               <!-- <a href="#" class="btn btn-primary">View File</a> -->
+             </div>
+           </div>
+         <% }); } %>
+         <% if(data == null) { %>
+           <div class="mt-3 lead">
+             <p>Please Enter a Topic or Question</p>
+           </div>
+         <%  } %>
+       </div>
+       <div class="col-6">
+        <div class="mt-5">
+          <!-- <img class="img-fluid w-40" src="imgs/search.png"> -->
+        </div>
+       </div>
+    </div>
   </div>
 <%- include('partials/footer') -%>
