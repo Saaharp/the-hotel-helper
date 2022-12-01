@@ -8,7 +8,7 @@
            <form action="/qa/q" method="POST" class="search-form px-5" id="searchForm">
              <div class="mb-3">
                  <!-- <label for="title" placeholder="Enter here" class="form-label"></label> -->
-                 <input type="text" class="form-control" id="title" name="searchInput" placeholder="Enter here" <% if (search != '') { %> value="<%= search %>" <% } %>>
+                 <input type="text" class="form-control" id="title" name="searchInput" placeholder="Ex) Room Types" <% if (search != '') { %> value="<%= search %>" <% } %>>
              </div>
              <div>
                <button class="btn btn-primary">Search</button>
@@ -23,9 +23,7 @@
                <%=item.question%>
              </div>
              <div class="card-body">
-               <!-- <h5 class="card-title">Special title treatment</h5> -->
                <p class="card-text"><%=item.answer%></p>
-               <!-- <a href="#" class="btn btn-primary">View File</a> -->
              </div>
            </div>
          <% }); } %>
@@ -37,7 +35,6 @@
        </div>
        <div class="col-6">
         <div class="mt-5">
-          <!-- <img class="img-fluid w-40" src="imgs/search.png"> -->
         </div>
        </div>
     </div>
