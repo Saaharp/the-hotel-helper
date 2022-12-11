@@ -1,5 +1,5 @@
 # The Hotel Helper
-This application is a resource for hotel employees to get immediate answers to common topics regarding their position. Each user has access to search for a topic, create a new topic, and update or delete their inputs.
+This application allows hotel employees to get immediate answers to common questions about their job. Each user has the ability to search for topics, create new topics, and update or delete their inputs.
 
 **Link to project:** https://hotelhelper.cyclic.app/
 
