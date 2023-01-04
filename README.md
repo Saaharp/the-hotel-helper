@@ -3,7 +3,7 @@ This application allows hotel employees to get immediate answers to common quest
 
 **Link to project:** https://hotelhelper.cyclic.app/
 
-![hhelper](https://user-images.githubusercontent.com/102547132/206809537-edd0b000-19ca-42c4-9bd0-7c3863c40c52.jpg)
+<img src="https://user-images.githubusercontent.com/102547132/206805031-d8138293-b056-4738-a915-cb233d24a723.gif" alt="Project 1" height="" />
 
 
 ## How It's Made:
