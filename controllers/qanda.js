@@ -4,8 +4,6 @@ const Qa = require("../models/Qanda");
 module.exports = {
   createQA: async (req, res) => {
     try {
-      // const result = await cloudinary.uploader.upload(req.file.path);
-
       await Qa.create({
         question: req.body.question,
         answer: req.body.answer,
@@ -52,8 +50,6 @@ module.exports = {
     try {
       // Find post by id
       let qas = await Qa.findById({ _id: req.params.id });
-
-      // await cloudinary.uploader.destroy(post.cloudinaryId);
 
       // Delete post from db
       await Qa.remove({ _id: req.params.id });
