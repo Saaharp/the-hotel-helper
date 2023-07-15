@@ -10,22 +10,10 @@ This application allows hotel employees to get immediate answers to common quest
 
 **Tech used:** EJS, Bootstrap, JavaScript, Express, MongoDB, Node.js
 
-# Install
+## Optimizations:
+Incorporate a comprehensive dashboard with integrated APIs to provide hotel employees with real-time access to relevant information such as current weather updates, personalized "things to do" recommendations, and restaurant reviews for guests.
 
-`npm install`
-
----
-
-# Things to add
-
-- Create a `.env` file in config folder and add the following as `key = value`
-  - PORT = (can be any port example: 3000)
-  - DB_STRING = `your database URI`
----
-
-# Run
-
-`npm start`
+Implement a messaging component within the app that enables managers and supervisors to create and escalate tasks to employees, who can then accept and resolve these tasks upon completion.
 
 
 ## Examples:
